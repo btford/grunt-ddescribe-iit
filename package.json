@@ -1,0 +1,23 @@
+{
+  "name": "grunt-ddescribe-iit",
+  "version": "0.0.1",
+  "description": "Grunt task for checking that iit and ddescribe don't make it into committed code",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "should": "~1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/btford/grunt-ddescribe-iit"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "Brian Ford",
+  "license": "BSD"
+}
