@@ -25,13 +25,12 @@ Task targets, files and options may be specified according to the grunt [Configu
 ### Example
 
 ```js
-'ddescribe-iit': {
-  all: {
-    expand: true,
-    src: ['test/**/*.js'],
-    ignore: ['some/file']
-  }
-},
+"ddescribe-iit": {
+  files: [
+    'test/**/*.js',
+    '!test/ngScenario/DescribeSpec.js' // ignore this guy
+  ]
+}
 ```
 
 ## Running the Tests
