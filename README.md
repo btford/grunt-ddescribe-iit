@@ -1,4 +1,4 @@
-# grunt-ddescribe-iit
+# grunt-ddescribe-iit [![Build Status](https://secure.travis-ci.org/btford/grunt-ddescribe-iit.png?branch=master)](http://travis-ci.org/btford/grunt-ddescribe-iit)
 
 Grunt plugin for preventing you from accidentally comitting a ddescribe or iit into your project.
 
