@@ -1,11 +1,6 @@
 'use strict';
 
-var disallowed = [
-  'iit',
-  'xit',
-  'ddescribe',
-  'xdescribe'
-];
+var checkFile = require('./lib/check-file');
 
 module.exports = function (grunt) {
 
@@ -20,13 +15,13 @@ module.exports = function (grunt) {
           };
         })
         .forEach(function (file) {
-          disallowed.forEach(function (thing) {
-            if (file.contents.indexOf(thing) !== -1) {
-              var line = file.contents.substr(0, file.contents.indexOf(thing)).split('\n').length;
-              grunt.log.errorlns(file.name + ' has `' + thing + '` at line ' + line);
-              failed = true;
-            }
-          });
+          var errs;
+          if (errs = checkFile(file.contents)) {
+            errs.forEach(function (err) {
+              grunt.log.errorlns(file.name + ' has `' + err.str + '` at line ' + err.line);
+            });
+            failed = true;
+          }
         });
     });
     if (failed) {
