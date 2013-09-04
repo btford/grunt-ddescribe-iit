@@ -21,5 +21,8 @@
     "grunt"
   ],
   "author": "Brian Ford",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "esprima": "~1.0.4"
+  }
 }
