@@ -6,15 +6,28 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     jshint: {
-      options: {
-        jshintrc: '.jshintrc'
+      all: {
+        options: {
+          jshintrc: '.jshintrc'
+        },
+        files: {
+          src: [
+            'Gruntfile.js',
+            'lib/*.js',
+            'tasks/*.js',
+          ]
+        }
       },
-      all: [
-        'Gruntfile.js',
-        'lib/*.js',
-        'tasks/*.js',
-        'tests/*.js'
-      ]
+      tests: {
+        options: {
+          jshintrc: 'tests/.jshintrc'
+        },
+        files: {
+          src: [
+            'tests/*.js'
+          ]
+        }
+      }
     },
 
     mochacli: {
@@ -27,5 +40,5 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['test']);
-  grunt.registerTask('test', ['mochacli']);
+  grunt.registerTask('test', ['jshint', 'mochacli']);
 };

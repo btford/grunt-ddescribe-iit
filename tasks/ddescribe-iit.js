@@ -11,8 +11,8 @@ module.exports = function (grunt) {
     grunt.util.async.forEach(this.filesSrc, function (file, next) {
       if (grunt.file.isFile(file)) {
         var fileContents = grunt.file.read(file);
-        var errs;
-        if (errs = checkFile(fileContents)) {
+        var errs = checkFile(fileContents);
+        if (errs) {
           errs.forEach(function (err) {
             grunt.log.errorlns(file + ' has `' + err.str + '` at line ' + err.line);
           });
