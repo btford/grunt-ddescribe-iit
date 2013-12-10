@@ -32,4 +32,8 @@ describe('check-file', function () {
     should.equal(problems[0].line, 3);
   });
 
+  it('should not treat `exit` as `xit`', function () {
+    should.not.exist(checkFile("exit()"));
+  });
+
 });
