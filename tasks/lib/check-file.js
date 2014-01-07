@@ -5,25 +5,24 @@ var disallowed = [
   'xdescribe'
 ];
 
-var whitespace = [
-  ' ',
-  '\n',
-  '\t'
-];
+function disallowedIndex(largeString, disallowedString) {
+  var notFunctionName = '[^A-Za-z0-9$_]';
+  var regex = new RegExp('(^|' + notFunctionName + ')(' + disallowedString + ')' + notFunctionName + '*\\(', 'gm');
+  var match = regex.exec(largeString);
+  // Return the match accounting for the first submatch length.
+  return match != null ? match.index + match[1].length : -1;
+}
 
 // returns undefined || obj
 module.exports = function (fileContents) {
   var res;
 
   disallowed.forEach(function (str) {
-    var index = 0;
-    if ((index = fileContents.indexOf(str)) !== -1 &&
-        (index === 0 || whitespace.indexOf(fileContents[index - 1]) > -1)) {
-
+    if (disallowedIndex(fileContents, str) !== -1) {
       res = res || [];
       res.push({
         str: str,
-        line: fileContents.substr(0, fileContents.indexOf(str)).split('\n').length
+        line: fileContents.substr(0, disallowedIndex(fileContents, str)).split('\n').length
       });
     }
   });
