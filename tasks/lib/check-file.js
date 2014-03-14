@@ -2,7 +2,9 @@ var disallowed = [
   'iit',
   'xit',
   'ddescribe',
-  'xdescribe'
+  'xdescribe',
+  'describe.only',
+  'it.only'
 ];
 
 function disallowedIndex(largeString, disallowedString) {
