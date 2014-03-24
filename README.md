@@ -29,7 +29,10 @@ Task targets, files and options may be specified according to the grunt [Configu
   files: [
     'test/**/*.js',
     '!test/ngScenario/DescribeSpec.js' // ignore this guy
-  ]
+  ],
+  options: { // Optional options object
+    disallowed: ['ddescribe', 'iit']
+  }
 }
 ```
 
