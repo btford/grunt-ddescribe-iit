@@ -1,12 +1,3 @@
-var disallowed = [
-  'iit',
-  'xit',
-  'ddescribe',
-  'xdescribe',
-  'describe.only',
-  'it.only'
-];
-
 function disallowedIndex(largeString, disallowedString) {
   var notFunctionName = '[^A-Za-z0-9$_]';
   var regex = new RegExp('(^|' + notFunctionName + ')(' + disallowedString + ')' + notFunctionName + '*\\(', 'gm');
@@ -16,18 +7,20 @@ function disallowedIndex(largeString, disallowedString) {
 }
 
 // returns undefined || obj
-module.exports = function (fileContents) {
+module.exports = function (fileContents, disallowed) {
   var res;
 
-  disallowed.forEach(function (str) {
-    if (disallowedIndex(fileContents, str) !== -1) {
-      res = res || [];
-      res.push({
-        str: str,
-        line: fileContents.substr(0, disallowedIndex(fileContents, str)).split('\n').length
-      });
-    }
-  });
+  if (disallowed instanceof Array) {
 
+    disallowed.forEach(function (str) {
+      if (disallowedIndex(fileContents, str) !== -1) {
+        res = res || [];
+        res.push({
+          str: str,
+          line: fileContents.substr(0, disallowedIndex(fileContents, str)).split('\n').length
+        });
+      }
+    });
+  }
   return res;
 };
