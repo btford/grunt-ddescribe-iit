@@ -49,4 +49,16 @@ describe('check-file', function () {
     should.not.exist(checkFile("exit()"));
   });
 
+  it("should still fail a check with exceptions given, but the exception not included", function () {
+      should.exist(checkFile("xit('is not a-ok, still'); ddescribe('is a-ok, but only because of exceptions');", ["xdescribe", "iit", "ddescribe"]));
+  });
+
+  it("should allow a single exception to be passed in an array", function () {
+      should.not.exist(checkFile("xdescribe('is a-ok in this case')", ["xdescribe"]));
+  });
+
+  it("should allow multiple exceptions to be passed in an array", function () {
+      should.not.exist(checkFile("iit('is a-ok in this case'); ddescribe('is a-ok, but only because of exceptions');", ["xdescribe", "iit", "ddescribe"]));
+  });
+
 });
