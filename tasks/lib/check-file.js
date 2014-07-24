@@ -16,10 +16,16 @@ function disallowedIndex(largeString, disallowedString) {
 }
 
 // returns undefined || obj
-module.exports = function (fileContents) {
+module.exports = function (fileContents, exceptions) {
   var res;
 
-  disallowed.forEach(function (str) {
+  var localDisallowed = disallowed;
+  if (exceptions && exceptions.length) {
+      localDisallowed = localDisallowed.filter(function (name) {
+          return exceptions.indexOf(name) === -1;
+      });
+  }
+  localDisallowed.forEach(function (str) {
     if (disallowedIndex(fileContents, str) !== -1) {
       res = res || [];
       res.push({

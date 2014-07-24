@@ -33,6 +33,32 @@ Task targets, files and options may be specified according to the grunt [Configu
 }
 ```
 
+You may also want to configure specific tasks with exceptions for certain statements.
+For instance, in dev you may want to allow 'xit' and 'xdescribe' statements.
+
+### Example
+
+```js
+"ddescribe-iit": {
+  dist: {
+    files: [
+        'test/**/*.js',
+        '!test/ngScenario/DescribeSpec.js' // ignore this guy
+    ]
+  },
+  dev: {
+    files: [
+      'test/**/*.js',
+      '!test/ngScenario/DescribeSpec.js' // ignore this guy
+    ],
+    options: {
+      exceptions: ['xit', 'xdescribe']
+    }
+  }
+}
+```
+
+
 ## Running the Tests
 Run `grunt test`.
 
