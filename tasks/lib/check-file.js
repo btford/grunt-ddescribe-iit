@@ -1,6 +1,8 @@
 var disallowed = [
+  'fit',
   'iit',
   'xit',
+  'fdescribe',
   'ddescribe',
   'xdescribe',
   'describe.only',
