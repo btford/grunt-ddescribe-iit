@@ -4,7 +4,7 @@
   "description": "Grunt task for checking that iit and ddescribe don't make it into committed code",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "grunt test"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
