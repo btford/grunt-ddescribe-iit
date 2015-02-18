@@ -19,7 +19,8 @@
     "url": "git://github.com/btford/grunt-ddescribe-iit"
   },
   "keywords": [
-    "grunt"
+    "grunt",
+    "gruntplugin"
   ],
   "author": "Brian Ford",
   "license": "BSD"
