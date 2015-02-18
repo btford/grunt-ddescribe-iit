@@ -30,6 +30,14 @@ module.exports = function (grunt) {
       }
     },
 
+    'ddescribe-iit': {
+      all: {
+        src: [
+          'tests/fixtures/*.js'
+        ]
+      }
+    },
+
     mochacli: {
       options: {
         require: ['should'],
