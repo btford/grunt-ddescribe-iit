@@ -44,6 +44,10 @@ describe('check-file', function () {
     should.exist(checkFile("it('is a-ok');exit(0);xit('is not a-ok')", defaultDisallowed));
   });
 
+  it('should report multiple errors', function () {
+    should(checkFile("xit('is not a-ok');fit('is not a-ok')", defaultDisallowed)).have.lengthOf(2);
+  });
+
   it('should return an array if there is `xdescribe`', function () {
     should.exist(checkFile("xdescribe('is not a-ok')", defaultDisallowed));
   });
