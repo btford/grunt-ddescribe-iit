@@ -22,15 +22,27 @@ _Run this task with the `grunt ddescribe-iit` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
-### Example
+### Examples
+
+Simple:
 
 ```js
 "ddescribe-iit": {
   files: [
     'test/**/*.js',
     '!test/ngScenario/DescribeSpec.js' // ignore this guy
+  ]
+}
+```
+
+Custom disallowed keywords list:
+
+```js
+"ddescribe-iit": {
+  files: [
+    'test/**/*.js',
   ],
-  options: { // Optional options object
+  options: {
     disallowed: ['ddescribe', 'iit']
   }
 }
