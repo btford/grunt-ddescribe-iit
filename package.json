@@ -1,6 +1,6 @@
 {
   "name": "grunt-ddescribe-iit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Grunt task for checking that iit and ddescribe don't make it into committed code",
   "main": "Gruntfile.js",
   "scripts": {
