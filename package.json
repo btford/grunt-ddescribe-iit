@@ -27,5 +27,14 @@
     "gruntplugin"
   ],
   "author": "Brian Ford",
+  "maintainers": [
+    {
+      "name": "Brian Ford"
+    },
+    {
+      "name": "Michał Gołębiowski",
+      "email": "m.goleb@gmail.com"
+    }
+  ],
   "license": "BSD-3-Clause"
 }
