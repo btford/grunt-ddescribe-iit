@@ -2,7 +2,7 @@
 
 var grunt = require('grunt');
 var should = require('should');
-var spawn = require('win-spawn');
+var spawn = require('cross-spawn');
 
 describe('Task: ddescribe-iit', function () {
   it('should report multiple errors', function (done) {
